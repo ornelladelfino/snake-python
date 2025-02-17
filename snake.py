@@ -18,6 +18,14 @@ class Snake:
     def create_snake(self):
         for position in STARTING_POSITIONS:
             self.grow(position)
+            
+    def reset(self):
+        for bit in self.snake_body:
+            bit.goto(1000, 1000)
+        self.snake_body.clear()
+        self.create_snake()
+        self.head=self.snake_body[0]
+        self.moving_speed=.4
 
     def grow(self, position):
         new_bit = Turtle("square")
